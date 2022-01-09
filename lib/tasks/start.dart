@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:earables_app/stream_chart/stream_chart.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import '../utility/number_stream.dart';
@@ -43,11 +44,14 @@ class _StartState extends State<Start> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: LineChart(
-        LineChartData(
-          lineBarsData: [
-            LineChartBarData(spots: flSpots),
-          ],
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: StreamChart<double>(
+          stream: NumberStream.getSinusStream,
+          handler: (d) => [d],
+          maxValue: 2,
+          minValue: -2,
+          timeRange: Duration(seconds: 10),
         ),
       ),
     );
