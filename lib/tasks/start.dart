@@ -5,6 +5,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import '../utility/number_stream.dart';
 import 'package:earables_app/stream_chart/widgets/stream_line_chart.dart';
+import 'package:sensors_plus/sensors_plus.dart';
 
 class Start extends StatefulWidget {
   const Start({Key? key, required this.title}) : super(key: key);
@@ -46,11 +47,11 @@ class _StartState extends State<Start> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: StreamChart<double>(
-          stream: NumberStream.getSinusStream,
-          handler: (d) => [d],
-          maxValue: 2,
-          minValue: -2,
+        child: StreamChart<AccelerometerEvent>(
+          stream: accelerometerEvents,
+          handler: (event) => [event.x, event.y, event.z],
+          maxValue: 20,
+          minValue: -20,
           timeRange: Duration(seconds: 10),
         ),
       ),
