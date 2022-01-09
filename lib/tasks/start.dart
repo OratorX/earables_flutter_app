@@ -11,6 +11,6 @@ class Start extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-    );
+      );
   }
 }
