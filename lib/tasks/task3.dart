@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sensors_plus/sensors_plus.dart';
 import '../stream_chart/chart_legend.dart';
 import '../stream_chart/stream_chart.dart';
-import 'package:sensors_plus/sensors_plus.dart';
 
 class Task3 extends StatelessWidget {
   const Task3({Key? key, required this.title}) : super(key: key);
